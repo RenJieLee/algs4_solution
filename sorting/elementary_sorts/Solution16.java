@@ -3,7 +3,6 @@ import java.util.Arrays;
 
 public class Solution16 {
 }
-`
 class CheckExample {
 	public static void sort(Comparable[] a) {
 
@@ -21,12 +20,13 @@ class CheckExample {
 		if (!isSorted(a)) return false;
 		for (Comparable c : a) {
 			if (hashMap.get(c) == null) {
-				hashMap.put(c, -1);
+				//hashMap.put(c, -1);
+				return false;
 			} else {
 				hashMap.put(c, hashMap.get(c) - 1);
 			}
 		}
-		for (Integer i : hashMap.values()) if (i < 0) return false;
+		for (Integer i : hashMap.values()) if (i != 0) return false;
 		return true;
 	}
 	private static boolean less(Comparable v, Comparable w) {
